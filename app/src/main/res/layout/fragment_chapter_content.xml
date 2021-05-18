@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.story.ChapterContentFragment">
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_chapter_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Chuong 10"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_chapter_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Tai sao lai co no?"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_chapter_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="In iaculis nunc sed augue lacus viverra vitae. Quis commodo odio aenean sed adipiscing. Sagittis id consectetur purus ut faucibus pulvinar. Mi in nulla posuere sollicitudin aliquam ultrices sagittis. Sit amet facilisis magna etiam tempor. Aliquam id diam maecenas ultricies. A arcu cursus vitae congue. Iaculis eu non diam phasellus vestibulum lorem sed risus. Consectetur a erat nam at lectus urna duis convallis. Auctor augue mauris augue neque. Ut lectus arcu bibendum at varius vel pharetra. Mi proin sed libero enim. Est lorem ipsum dolor sit amet. Suspendisse in est ante in nibh. Blandit cursus risus at ultrices mi tempus imperdiet nulla malesuada. Cursus risus at ultrices mi tempus. Ac tortor vitae purus faucibus ornare suspendisse. Sagittis nisl rhoncus mattis rhoncus urna. Vel turpis nunc eget lorem dolor sed.
+
+Porttitor leo a diam sollicitudin tempor. Bibendum at varius vel pharetra. Ornare massa eget egestas purus viverra. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper. Semper quis lectus nulla at volutpat. Imperdiet proin fermentum leo vel orci porta non pulvinar neque. Placerat in egestas erat imperdiet sed euismod nisi porta. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Interdum varius sit amet mattis vulputate enim nulla aliquet. Consectetur lorem donec massa sapien faucibus et. In nisl nisi scelerisque eu ultrices vitae. Blandit turpis cursus in hac habitasse platea dictumst quisque. Ut eu sem integer vitae justo eget magna. Enim praesent elementum facilisis leo vel fringilla. Sit amet est placerat in egestas erat imperdiet sed. Nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Porta lorem mollis aliquam ut. Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla. Viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat. In iaculis nunc sed augue lacus viverra vitae. Quis commodo odio aenean sed adipiscing. Sagittis id consectetur purus ut faucibus pulvinar. Mi in nulla posuere sollicitudin aliquam ultrices sagittis. Sit amet facilisis magna etiam tempor. Aliquam id diam maecenas ultricies. A arcu cursus vitae congue. Iaculis eu non diam phasellus vestibulum lorem sed risus. Consectetur a erat nam at lectus urna duis convallis. Auctor augue mauris augue neque. Ut lectus arcu bibendum at varius vel pharetra. Mi proin sed libero enim. Est lorem ipsum dolor sit amet. Suspendisse in est ante in nibh. Blandit cursus risus at ultrices mi tempus imperdiet nulla malesuada. Cursus risus at ultrices mi tempus. Ac tortor vitae purus faucibus ornare suspendisse. Sagittis nisl rhoncus mattis rhoncus urna. Vel turpis nunc eget lorem dolor sed.
+
+Porttitor leo a diam sollicitudin tempor. Bibendum at varius vel pharetra. Ornare massa eget egestas purus viverra. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper. Semper quis lectus nulla at volutpat. Imperdiet proin fermentum leo vel orci porta non pulvinar neque. Placerat in egestas erat imperdiet sed euismod nisi porta. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Interdum varius sit amet mattis vulputate enim nulla aliquet. Consectetur lorem donec massa sapien faucibus et. In nisl nisi scelerisque eu ultrices vitae. Blandit turpis cursus in hac habitasse platea dictumst quisque. Ut eu sem integer vitae justo eget magna. Enim praesent elementum facilisis leo vel fringilla. Sit amet est placerat in egestas erat imperdiet sed. Nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Porta lorem mollis aliquam ut. Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla. Viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat." />
+
+        </LinearLayout>
+    </ScrollView>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_previous"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Previous" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="end">-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btn_next"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Next" />-->
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+
+
+</FrameLayout>
