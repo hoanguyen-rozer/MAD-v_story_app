@@ -18,14 +18,14 @@ import com.example.vstory.model.Story;
 
 import java.util.List;
 
-public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> {
+public class HotStoryAdapter extends RecyclerView.Adapter<HotStoryAdapter.ViewHolder> {
 
-    private List<Story> listStory;
+    private List<Story> listHotStory;
     private Context context;
     private StoryInteractionListener callBack;
 
-    public StoryAdapter(List<Story> listStory, Context context, StoryInteractionListener callBack) {
-        this.listStory = listStory;
+    public HotStoryAdapter(List<Story> listHotStory, Context context, StoryInteractionListener callBack) {
+        this.listHotStory = listHotStory;
         this.context = context;
         this.callBack = callBack;
     }
@@ -41,7 +41,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Story story = listStory.get(position);
+        Story story = listHotStory.get(position);
         holder.bind(story);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,13 +54,13 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return listStory.size();
+        return listHotStory.size();
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView story_title, story_author_and_chap, author;
+        private TextView story_title, story_author_and_chap;
         private ImageView story_image;
 
 
@@ -68,17 +68,11 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
             super(itemView);
             story_title = itemView.findViewById(R.id.story_title);
             story_author_and_chap = itemView.findViewById(R.id.story_author_and_chap);
-            author = itemView.findViewById(R.id.author);
-//            story_update_day = itemView.findViewById(R.id.story_update_day);
             story_image = itemView.findViewById(R.id.story_image);
         }
 
         public void bind(Story story) {
             this.getStory_title().setText(story.getTitle());
-            this.getStory_author_and_chap().setText("Chương: " + story.getTotal_chapters());
-            this.getAuthor().setText(story.getAuthor());
-//            this.getStory_about_categories().setText("The loai: " + story.getCategory());
-//            this.getStory_update_day().setText("Ngày cập nhật: " + (CharSequence) story.getDate_update());
             Glide.with(context)
                     .asBitmap()
                     .centerCrop()
@@ -93,14 +87,6 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
         public TextView getStory_author_and_chap() {
             return story_author_and_chap;
         }
-
-        public TextView getAuthor() {
-            return author;
-        }
-//
-//        public TextView getStory_update_day() {
-//            return story_update_day;
-//        }
 
         public ImageView getStory_image() {
             return story_image;

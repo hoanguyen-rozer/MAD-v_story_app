@@ -33,38 +33,10 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-//        ArrayList<Story> allStory = new ArrayList<>();
-//        String[] category = {"Kiem hiep", "Co trang"};
-//        allStory.add(new Story("1", "Hiep Khach Giang Ho 1", "Yamaha", category, "https://th.bing.com/th/id/Ra8ae2c3be15e632bfb304dbe81f758d6?rik=Ohf1WYKKMfvxpw&pid=ImgRaw", "update", "test", "20/04/2021", 43));
-//        allStory.add(new Story("2", "Hiep Khach Giang Ho 2", "John Doe", category, "https://th.bing.com/th/id/OIP.soWw-aviX3eoGjKw5L0ioQAAAA?pid=ImgDet&rs=1", "update", "test", "20/04/2021", 43));
-//        allStory.add(new Story("3", "Hiep Khach Giang Ho 3", "Yamaha", category, "https://th.bing.com/th/id/Ra8ae2c3be15e632bfb304dbe81f758d6?rik=Ohf1WYKKMfvxpw&pid=ImgRaw", "update", "test", "20/04/2021", 43));
-//        allStory.add(new Story("4", "Hiep Khach Giang Ho 4", "John Doe", category, "https://th.bing.com/th/id/OIP.soWw-aviX3eoGjKw5L0ioQAAAA?pid=ImgDet&rs=1", "update", "test", "20/04/2021", 43));
-//        allStory.add(new Story("5", "Hiep Khach Giang Ho 5", "Yamaha", category, "https://th.bing.com/th/id/Ra8ae2c3be15e632bfb304dbe81f758d6?rik=Ohf1WYKKMfvxpw&pid=ImgRaw", "update", "test", "20/04/2021", 43));
-//        allStory.add(new Story("6", "Hiep Khach Giang Ho 6", "John Doe", category, "https://th.bing.com/th/id/OIP.soWw-aviX3eoGjKw5L0ioQAAAA?pid=ImgDet&rs=1", "update", "test", "20/04/2021", 43));
-//        allStory.add(new Story("7", "Hiep Khach Giang Ho 7", "John Doe", category, "https://th.bing.com/th/id/OIP.soWw-aviX3eoGjKw5L0ioQAAAA?pid=ImgDet&rs=1", "update", "test", "20/04/2021", 43));
-//        allStory.add(new Story("8", "Hiep Khach Giang Ho 8", "John Doe", category, "https://th.bing.com/th/id/OIP.soWw-aviX3eoGjKw5L0ioQAAAA?pid=ImgDet&rs=1", "update", "test", "20/04/2021", 43));
-//
-//        allStoryRecView = root.findViewById(R.id.list_story_recview);
-//        allStoryRecView.setHasFixedSize(true);
-//        allStoryRecView.setLayoutManager(new LinearLayoutManager(root.getContext()));
-//
-//        StoryAdapter storyAdapter = new StoryAdapter(allStory, getContext(), new StoryInteractionListener() {
-//            @Override
-//            public void setOnClickItem(int pos) {
-//                Intent intent = new Intent(getActivity().getBaseContext(), AboutStoryActivity.class);
-//                intent.putExtra(SELECTED_STORY, allStory.get(pos));
-//                getContext().startActivity(intent);
-//            }
-//
-//            @Override
-//            public ArrayList<Story> getList() {
-//                return allStory;
-//            }
-//        });
-//        allStoryRecView.setAdapter(storyAdapter);
         addMainFragment();
-
+        addMainFragment6();
+        addMainFragment2();
+        addMainFragment3();
         return root;
 
 
@@ -77,7 +49,27 @@ public class HomeFragment extends Fragment {
                 .add(R.id.home_frame_layout, listStoryFragment, listStoryFragment.getTag())
                 .commit();
     }
-
+    private void addMainFragment6(){
+        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(1);//id kiểm hiệp
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.home_frame_layout6, listStoryFragment,"Fragment6")
+                .commit();
+    }
+    private void addMainFragment2(){
+        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(3);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.home_frame_layout2, listStoryFragment,"Fragment2")
+                .commit();
+    }
+    private void addMainFragment3(){
+        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(2);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.home_frame_layout3, listStoryFragment,"Fragment3")
+                .commit();
+    }
 
 
 }

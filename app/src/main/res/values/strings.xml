@@ -5,4 +5,23 @@
     <string name="title_library">Thư Viện</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cat_stupid">Cat Stupid</string>
+    <string name="hot">Hot Story</string>
+    <string name="trending">Trending</string>
+    <string name="todo">TODO</string>
+    <string name="title">Một con mèo ngu ngốc đáng iu</string>
+    <string name="ch_ng_71_t_g_b_c_nam">Chương: 71 - T/g: Bắc Nam</string>
+    <string name="ng_y_c_p_nh_t_20_04_2021">Ngày cập nhật: 20/04/2021</string>
+    <string name="cat">cat</string>
+    <string name="the_loai">The Loai:</string>
+    <string name="ngay_cap_nhat">Ngay Cap Nhat:</string>
+    <string name="danh_muc">DANH MUC</string>
+    <string name="top_truyen">TOP TRUYEN</string>
+    <string name="xep_hang">XEP HANG</string>
+    <string name="the_loai_truyen">THE LOAI</string>
+    <string name="bookmark">BOOKMARK</string>
+    <string name="truyen_moi_cap_nhat">TRUYEN MOI CAP NHAT</string>
+    <string name="ki_m_hi_p_hay">KIẾM HIỆP HAY</string>
+    <string name="trinh_th_m_hay">TRINH THÁM HAY</string>
+    <string name="c_trang_hay">CỔ TRANG HAY</string>
 </resources>

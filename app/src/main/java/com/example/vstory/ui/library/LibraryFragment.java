@@ -4,36 +4,44 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.vstory.R;
 import com.example.vstory.databinding.FragmentLibraryBinding;
+import com.example.vstory.ui.story.ListStoryFragment;
+
 
 public class LibraryFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    public static String SELECTED_STORY = "selected_story";
+
+    private RecyclerView hotStoryRecView;
     private FragmentLibraryBinding binding;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
-
         binding = FragmentLibraryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 
+        addMainFragment();
+
         return root;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    private void addMainFragment() {
+        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(-1);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.library_layout, listStoryFragment, listStoryFragment.getTag())
+                .commit();
     }
+
+
 }

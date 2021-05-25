@@ -29,9 +29,9 @@ public class CategoryFragment extends Fragment {
         View root = binding.getRoot();
         listCategory = new ArrayList<>();
         listCategory.add(new Category(1, "Kiem hiep"));
-        listCategory.add(new Category(2, "Xuyen Khong"));
-//        listCategory.add(new Category(3, "Ngon Tinh"));
-//        listCategory.add(new Category(4, "Java"));
+        listCategory.add(new Category(2, "Co Trang"));
+        listCategory.add(new Category(3, "Trinh Tham"));
+        listCategory.add(new Category(4, "Ma- Kinh Di"));
 //        listCategory.add(new Category(5, "Python"));
 //        listCategory.add(new Category(6, "Android"));
         addMainFragment();

@@ -1,5 +1,6 @@
 package com.example.vstory.ui.story;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +23,7 @@ import com.example.vstory.model.Story;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ListStoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ListStoryFragment extends Fragment {
 
     private static final String ARG_IS_PASSED = "idIsPassed";
@@ -34,7 +32,6 @@ public class ListStoryFragment extends Fragment {
     private RecyclerView listStoryRecView;
 
     public ListStoryFragment() {
-        // Required empty public constructor
     }
 
     public static ListStoryFragment newInstance(int idIsPassed) {
@@ -58,11 +55,15 @@ public class ListStoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list_story, container, false);
-
+        Log.e(
+                "Story","int: "+idIsPassed
+        );
         listStoryRecView = view.findViewById(R.id.list_story_recview);
         listStoryRecView.setHasFixedSize(true);
-        listStoryRecView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        layoutManager.scrollToPosition(0);
+        listStoryRecView.setLayoutManager(layoutManager);
         Service service = new Service(getContext());
 
         Service.GetListStoryResponse getListStoryResponse = new Service.GetListStoryResponse() {
@@ -79,33 +80,16 @@ public class ListStoryFragment extends Fragment {
 
         if(idIsPassed == -1){
             service.getAllStory(getListStoryResponse);
-//            service.getAllStory(new Service.GetListStoryResponse() {
-//                @Override
-//                public void onError(String message) {
-//                    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-//                }
-//
-//                @Override
-//                public void onResponse(List<Story> listStory) {
-//                    initView(listStory);
-//                }
-//            });
+        }else if(idIsPassed == 1) {
+            service.getStoryByCategory(idIsPassed, getListStoryResponse);
+        }else if (idIsPassed == 2){
+            service.getStoryByCategory(idIsPassed, getListStoryResponse);
         }else {
             service.getStoryByCategory(idIsPassed, getListStoryResponse);
-//            service.getStoryByCategory(idIsPassed, new Service.GetListStoryResponse() {
-//                @Override
-//                public void onError(String message) {
-//                    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-//                }
-//
-//                @Override
-//                public void onResponse(List<Story> listStory) {
-//                    initView(listStory);
-//                }
-//            });
         }
         return view;
     }
+
 
     public void initView(List<Story> listStory){
         StoryAdapter storyAdapter = new StoryAdapter(listStory, getContext(), new StoryInteractionListener() {

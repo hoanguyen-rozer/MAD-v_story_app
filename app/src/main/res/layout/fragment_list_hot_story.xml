@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.story.ListStoryFragment">
+    tools:context=".ui.story.ListHotStoryFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,11 +11,10 @@
         >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_story_recview"
+            android:id="@+id/list_hot_story_recview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="97dp" />
-
     </LinearLayout>
 
 

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -15,31 +19,88 @@
 
         <ImageView
             android:id="@+id/story_img_cover"
+            android:adjustViewBounds="true"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@android:color/holo_blue_bright" />
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@android:color/holo_blue_bright"
+            android:contentDescription="TODO" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="-50dp">
+            android:layout_marginTop="-75dp"
+
+            >
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                card_view:cardCornerRadius="50dp"
-
+                card_view:cardCornerRadius="5dp"
                 >
 
-                <ImageView
-                    android:id="@+id/story_img_primary"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@android:color/darker_gray"
-
-                    />
             </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/story_img_primary"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:layout_alignParentStart="true"
+
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="274dp"
+                android:layout_marginRight="274dp"
+                android:src="@android:color/darker_gray" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/story_img_primary"
+                >
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/story_about_title"
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="149dp"
+                android:layout_marginLeft="149dp"
+                android:layout_marginTop="92dp"
+                android:layout_marginEnd="81dp"
+                android:layout_marginRight="81dp"
+                android:text="Hiep Khach Giang Ho Con Meo Beo"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imagebutton"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="331dp"
+                android:layout_marginLeft="331dp"
+                android:layout_marginTop="96dp"
+                android:layout_marginEnd="19dp"
+                android:layout_marginRight="19dp"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bookmark" />
         </RelativeLayout>
 
 
@@ -48,30 +109,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/story_about_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="Hiep Khach Giang Ho 1" />
-        </RelativeLayout>
-
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/story_about_title"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="Tac Gia: " />
 
@@ -79,6 +130,7 @@
                 android:id="@+id/story_about_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="Bac Son" />
 
         </LinearLayout>
@@ -89,9 +141,9 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:text="The Loai: " />
+                android:text="@string/the_loai" />
 
             <TextView
                 android:id="@+id/story_about_categories"
@@ -107,7 +159,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="Tinh Trang: " />
 
@@ -125,7 +177,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="So Chuong: " />
 
@@ -143,7 +195,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="Ngay tao: " />
 
@@ -156,14 +208,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ngay Cap Nhat: " />
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:text="@string/ngay_cap_nhat" />
 
             <TextView
                 android:id="@+id/story_date_update"
@@ -176,25 +228,26 @@
 
     </LinearLayout>
 
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_read_story"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/des"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Read" />
-
-    </RelativeLayout>
-
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Mô tả" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_margin="20dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp">
 
         <TextView
@@ -202,8 +255,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
     </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_read_story"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_custom"
+            android:text="Read"
+            app:iconTint="#009688" />
+
+    </RelativeLayout>
+
+
 </LinearLayout>
+</ScrollView>
