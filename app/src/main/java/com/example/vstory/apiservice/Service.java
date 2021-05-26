@@ -147,6 +147,64 @@ public class Service {
         Singleton.getInstance(context).addToRequestQueue(jsonObjectRequest);
     }
 
+    public void searchStory(String str, GetListStoryResponse getListStoryResponse){
+        String url = "http://v-story-api.herokuapp.com/api/stories?search=" + str;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+//                            Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();
+                            JSONArray jsonArrayStory = response.getJSONArray("data");
+
+
+                            List<Story> listStory = new ArrayList<>();
+                            int lenArrStory = jsonArrayStory.length();
+                            for(int i = 0; i < lenArrStory; i++){
+                                JSONObject jsonStory = jsonArrayStory.getJSONObject(i);
+                                Story story = new Story();
+                                story.setId(jsonStory.getInt("id"));
+                                story.setTitle(jsonStory.getString("title"));
+                                story.setAuthor(jsonStory.getString("author"));
+
+                                JSONArray jsonArrayCategory = jsonStory.getJSONArray("category");
+                                List<String> categories = new ArrayList<>();
+                                for(int j = 0; j < jsonArrayCategory.length(); j++){
+                                    String category = jsonArrayCategory.getString(j);
+                                    categories.add(category);
+                                }
+                                story.setCategory(categories);
+                                story.setImgUrl(jsonStory.getString("image"));
+                                story.setStatus(jsonStory.getString("status"));
+                                story.setDescription(jsonStory.getString("description"));
+                                story.setDate_update(jsonStory.getString("date_update"));
+                                story.setTotal_chapters(jsonStory.getInt("total_chapters"));
+                                listStory.add(story);
+                            }
+
+
+
+
+                            getListStoryResponse.onResponse(listStory);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+                        getListStoryResponse.onError("Something Wrong");
+                    }
+                });
+
+        // Access the RequestQueue through your singleton class.
+        Singleton.getInstance(context).addToRequestQueue(jsonObjectRequest);
+    }
+
     public interface GetListChapterResponse{
         void onError(String message);
         void onResponse(List<Chapter> listChapter);

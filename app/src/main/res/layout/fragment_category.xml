@@ -11,17 +11,4 @@
         android:layout_height="match_parent"
         android:id="@+id/category_frag_frame_layout"/>
 
-<!--    <fragment-->
-<!--        android:id="@+id/listCategoryFrag"-->
-<!--        android:name="com.example.vstory.ui.category.ListCategoryFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:layout="@layout/fragment_list_category" />-->
-
-<!--    <fragment-->
-<!--        android:id="@+id/listStoryFrag"-->
-<!--        android:name="com.example.vstory.ui.story.ListStoryFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:layout="@layout/fragment_list_story" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

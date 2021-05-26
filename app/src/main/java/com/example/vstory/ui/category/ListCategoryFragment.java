@@ -15,7 +15,7 @@ import com.example.vstory.R;
 import com.example.vstory.adapter.CategoryGVAdapter;
 import com.example.vstory.databinding.FragmentListCategoryBinding;
 import com.example.vstory.model.Category;
-import com.example.vstory.ui.story.ListStoryFragment;
+import com.example.vstory.ui.story.ListStoryGridFragment;
 
 import java.util.List;
 
@@ -60,10 +60,10 @@ public class ListCategoryFragment extends Fragment {
         categoryGV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(listCategory.get(position).getId());
+                ListStoryGridFragment listStoryByCategoryFragment = ListStoryGridFragment.newInstance(listCategory.get(position).getId(), "");
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.category_frag_frame_layout, listStoryFragment, listStoryFragment.getTag())
+                        .replace(R.id.category_frag_frame_layout, listStoryByCategoryFragment, listStoryByCategoryFragment.getTag())
                         .addToBackStack(null)
                         .commit();
             }

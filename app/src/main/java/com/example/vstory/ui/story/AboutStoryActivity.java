@@ -85,5 +85,6 @@ public class AboutStoryActivity extends AppCompatActivity {
         story_about_categories.setText(TextUtils.join(", ", story.getCategory()));
         story_total_chapter.setText(String.valueOf(story.getTotal_chapters()));
         story_date_release.setText(story.getDate_update());
+        story_description.setText(story.getDescription());
     }
 }

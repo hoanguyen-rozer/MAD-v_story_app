@@ -3,8 +3,12 @@ package com.example.vstory.ui.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,6 +23,9 @@ import com.example.vstory.databinding.FragmentHomeBinding;
 import com.example.vstory.model.Story;
 import com.example.vstory.ui.story.AboutStoryActivity;
 import com.example.vstory.ui.story.ListStoryFragment;
+import com.example.vstory.ui.story.ListStoryGridFragment;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -26,7 +33,6 @@ public class HomeFragment extends Fragment {
 
     public static String SELECTED_STORY = "selected_story";
 
-    private RecyclerView allStoryRecView;
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -34,42 +40,48 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         addMainFragment();
-        addMainFragment6();
-        addMainFragment2();
-        addMainFragment3();
+//        addMainFragment6();
+//        addMainFragment2();
+//        addMainFragment3();
         return root;
 
 
     }
 
     private void addMainFragment(){
-        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(-1);
+        MainFragment mainFragment = new MainFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .add(R.id.home_frame_layout, listStoryFragment, listStoryFragment.getTag())
-                .commit();
-    }
-    private void addMainFragment6(){
-        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(1);//id kiểm hiệp
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.home_frame_layout6, listStoryFragment,"Fragment6")
-                .commit();
-    }
-    private void addMainFragment2(){
-        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(3);
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.home_frame_layout2, listStoryFragment,"Fragment2")
-                .commit();
-    }
-    private void addMainFragment3(){
-        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(2);
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.home_frame_layout3, listStoryFragment,"Fragment3")
+                .replace(R.id.home_frag_frame_layout, mainFragment, mainFragment.getTag())
                 .commit();
     }
 
-
+//    private void addMainFragment(){
+//        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(-1);
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .add(R.id.home_frame_layout, listStoryFragment, listStoryFragment.getTag())
+//                .commit();
+//    }
+//    private void addMainFragment6(){
+//        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(1);//id kiểm hiệp
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .add(R.id.home_frame_layout6, listStoryFragment,"Fragment6")
+//                .commit();
+//    }
+//    private void addMainFragment2(){
+//        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(3);
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .add(R.id.home_frame_layout2, listStoryFragment,"Fragment2")
+//                .commit();
+//    }
+//    private void addMainFragment3(){
+//        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(2);
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .add(R.id.home_frame_layout3, listStoryFragment,"Fragment3")
+//                .commit();
+//    }
 }

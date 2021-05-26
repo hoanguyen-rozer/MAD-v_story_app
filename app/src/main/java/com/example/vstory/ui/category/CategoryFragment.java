@@ -32,8 +32,7 @@ public class CategoryFragment extends Fragment {
         listCategory.add(new Category(2, "Co Trang"));
         listCategory.add(new Category(3, "Trinh Tham"));
         listCategory.add(new Category(4, "Ma- Kinh Di"));
-//        listCategory.add(new Category(5, "Python"));
-//        listCategory.add(new Category(6, "Android"));
+        listCategory.add(new Category(4, "Tham hiem - Phieu luu"));
         addMainFragment();
 
 
