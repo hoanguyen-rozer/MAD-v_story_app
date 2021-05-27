@@ -27,6 +27,49 @@ public class Service {
         this.context = context;
     }
 
+    public interface GetListCategoryResponse {
+        void onError(String message);
+        void onResponse(List<Category> listCategory);
+    }
+
+    public void getAllCategory(GetListCategoryResponse getListCategoryResponse){
+        String url = "http://v-story-api.herokuapp.com/api/categories/";
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArrayStory = response.getJSONArray("data");
+                            List<Category> listCategory = new ArrayList<>();
+                            int lenArrCategory = jsonArrayStory.length();
+                            for(int i = 0; i < lenArrCategory; i++){
+                                JSONObject jsonCategory = jsonArrayStory.getJSONObject(i);
+                                Category category = new Category();
+                                category.setId(jsonCategory.getInt("id"));
+                                category.setName(jsonCategory.getString("name"));
+                                listCategory.add(category);
+                            }
+
+                            getListCategoryResponse.onResponse(listCategory);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+                        getListCategoryResponse.onError("Something Wrong");
+                    }
+                });
+
+        // Access the RequestQueue through your singleton class.
+        Singleton.getInstance(context).addToRequestQueue(jsonObjectRequest);
+    }
+
     public interface GetListStoryResponse {
         void onError(String message);
         void onResponse(List<Story> listStory);
@@ -41,7 +84,6 @@ public class Service {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-//                            Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();
                             JSONArray jsonArrayStory = response.getJSONArray("data");
 
 
@@ -81,7 +123,7 @@ public class Service {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
                         getListStoryResponse.onError("Something Wrong");
                     }
                 });
@@ -138,7 +180,7 @@ public class Service {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
                         getListStoryResponse.onError("Something Wrong");
                     }
                 });
@@ -196,7 +238,7 @@ public class Service {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
                         getListStoryResponse.onError("Something Wrong");
                     }
                 });
@@ -246,7 +288,7 @@ public class Service {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
                         getListChapterResponse.onError("Something Wrong");
                     }
                 });

@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.vstory.R;
+import com.example.vstory.apiservice.Service;
 import com.example.vstory.databinding.FragmentCategoryBinding;
 import com.example.vstory.model.Category;
 import com.example.vstory.ui.story.ListStoryFragment;
@@ -27,16 +29,20 @@ public class CategoryFragment extends Fragment {
 
         binding = FragmentCategoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        listCategory = new ArrayList<>();
-        listCategory.add(new Category(1, "Kiem hiep"));
-        listCategory.add(new Category(2, "Co Trang"));
-        listCategory.add(new Category(3, "Trinh Tham"));
-        listCategory.add(new Category(4, "Ma- Kinh Di"));
-        listCategory.add(new Category(4, "Tham hiem - Phieu luu"));
-        addMainFragment();
 
+        Service service = new Service(getContext());
+        service.getAllCategory(new Service.GetListCategoryResponse() {
+            @Override
+            public void onError(String message) {
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+            }
 
-
+            @Override
+            public void onResponse(List<Category> listCategory) {
+                setListCategory(listCategory);
+                addMainFragment();
+            }
+        });
         return root;
     }
 
@@ -53,5 +59,9 @@ public class CategoryFragment extends Fragment {
         manager.beginTransaction()
                 .add(R.id.category_frag_frame_layout, listCategoryFragment, listCategoryFragment.getTag())
                 .commit();
+    }
+
+    public void setListCategory(List<Category> listCategory) {
+        this.listCategory = listCategory;
     }
 }
