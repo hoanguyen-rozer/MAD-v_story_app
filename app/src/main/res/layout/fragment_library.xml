@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="Trending"
+        android:text="THƯ VIỆN"
         android:textColor="#263238"
         android:textSize="30sp"
         android:textStyle="bold"

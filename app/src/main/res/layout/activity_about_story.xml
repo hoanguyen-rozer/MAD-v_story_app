@@ -34,13 +34,14 @@
             >
 
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                card_view:cardCornerRadius="5dp"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                card_view:cardCornerRadius="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 >
 
-            </androidx.cardview.widget.CardView>
+
 
             <ImageView
                 android:id="@+id/story_img_primary"
@@ -51,18 +52,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginEnd="274dp"
                 android:layout_marginRight="274dp"
                 android:src="@android:color/darker_gray" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/story_img_primary"
-                >
-
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/story_about_title"

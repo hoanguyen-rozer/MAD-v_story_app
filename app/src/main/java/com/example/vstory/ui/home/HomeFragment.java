@@ -40,12 +40,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         addMainFragment();
-//        addMainFragment6();
-//        addMainFragment2();
-//        addMainFragment3();
         return root;
-
-
     }
 
     private void addMainFragment(){
@@ -56,32 +51,4 @@ public class HomeFragment extends Fragment {
                 .commit();
     }
 
-//    private void addMainFragment(){
-//        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(-1);
-//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .add(R.id.home_frame_layout, listStoryFragment, listStoryFragment.getTag())
-//                .commit();
-//    }
-//    private void addMainFragment6(){
-//        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(1);//id kiểm hiệp
-//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .add(R.id.home_frame_layout6, listStoryFragment,"Fragment6")
-//                .commit();
-//    }
-//    private void addMainFragment2(){
-//        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(3);
-//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .add(R.id.home_frame_layout2, listStoryFragment,"Fragment2")
-//                .commit();
-//    }
-//    private void addMainFragment3(){
-//        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(2);
-//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .add(R.id.home_frame_layout3, listStoryFragment,"Fragment3")
-//                .commit();
-//    }
 }

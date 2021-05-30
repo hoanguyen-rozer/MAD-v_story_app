@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vstory.R;
 import com.example.vstory.databinding.FragmentLibraryBinding;
-import com.example.vstory.ui.story.ListStoryFragment;
+import com.example.vstory.ui.story.ListStoryLibFragment;
 
 
 public class LibraryFragment extends Fragment {
@@ -36,7 +36,7 @@ public class LibraryFragment extends Fragment {
     }
 
     private void addMainFragment() {
-        ListStoryFragment listStoryFragment = ListStoryFragment.newInstance(-1);
+        ListStoryLibFragment listStoryFragment = ListStoryLibFragment.newInstance(-1);
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .add(R.id.library_layout, listStoryFragment, listStoryFragment.getTag())
